@@ -153,9 +153,21 @@ footer {
 
 .pokemon-container {
     display: flex;
-    flex-wrap: nowrap;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
+}
+
+.pokemon-card, .pokemon-selector {
+    background-color: var(--input-bg-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.pokemon-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 #pokemonTable {
