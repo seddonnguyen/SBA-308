@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>My Pokémon Collection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+</head>
+<body>
+<header>
+    <h1>My Pokémon Collection</h1>
+</header>
+<main>
+    <section class="pokemon-container">
+        <div class="pokemon-selector">
+            <label for="pokemonSelect">Choose a Pokémon:</label>
+            <select id="pokemonSelect" onchange="displayPokemonDetails(this.value)">
+                <option value="">Select a Pokémon</option>
+            </select>
+        </div>
+        <div class="pokemon-card hidden" id="pokemonDetails">
+            <!-- Pokémon details will be shown here in a card layout -->
+        </div>
+        <table id="pokemonTable">
+            <thead>
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Abilities</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Pokémon entries will be added here -->
+            </tbody>
+        </table>
+    </section>
+</main>
+<footer>
+    <p>© 2024 Pokémon Fan Site</p>
+</footer>
+<script src="../js/pokemon.js"></script>
+</body>
+</html>
