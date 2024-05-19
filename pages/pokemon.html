@@ -7,13 +7,66 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="../css/styles.css">
+    <style>
+
+        #pokemonTable {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        #pokemonTable th,
+        #pokemonTable td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        #pokemonTable th {
+            background-color: #f4f4f4;
+        }
+
+        #pokemonDetails {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        #pokemonDetails img {
+            display: block;
+            margin: 0 auto 10px;
+        }
+
+        #pokemonDetails h3 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        #pokemonDetails p {
+            margin: 5px 0;
+            text-align: left;
+        }
+
+        #pokemonDetails ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #pokemonDetails ul li {
+            margin: 5px 0;
+            text-align: left;
+        }
+    </style>
 </head>
 <body>
 <header>
     <h1>My Pokémon Pokédex</h1>
 </header>
 <main>
-    <section class="pokemon-container">
+    <section class="pokemon-container" style="text-align:center">
         <div class="pokemon-selector">
             <label for="pokemonSelect">Choose a Pokémon:</label>
             <select id="pokemonSelect">

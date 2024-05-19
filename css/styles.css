@@ -77,14 +77,6 @@ button:hover {
     background-color: #1a54a5;
 }
 
-.pokemon-container {
-    text-align: center;
-}
-
-.pokemon-selector {
-    margin-bottom: 20px;
-}
-
 .pokemon-card.hidden {
     display: none;
 }
@@ -175,59 +167,6 @@ table th {
     color: #2a75bb;
 }
 
-.hidden {
-    display: none;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 1.5rem;
-    }
-
-    .input-group input {
-        font-size: 0.9rem;
-    }
-
-    button {
-        font-size: 0.9rem;
-        padding: 8px 16px;
-    }
-
-    .pokemon-card {
-        padding: 15px;
-    }
-
-    table th, table td {
-        padding: 8px;
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 480px) {
-    header, footer {
-        padding: 10px;
-    }
-
-    .form-section, .pokemon-container {
-        width: 90%;
-        margin: 0 auto;
-    }
-
-    .pokemon-selector {
-        width: 100%;
-    }
-
-    .pokemon-card {
-        width: 100%;
-    }
-
-    table {
-        width: 100%;
-        font-size: 0.8rem;
-    }
-}
-
 .pokemon-container {
     max-width: 600px;
     margin: 0 auto;
@@ -236,31 +175,6 @@ table th {
 .pokemon-selector {
     margin-bottom: 20px;
     text-align: center;
-}
-
-#pokemonTable {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-}
-
-#pokemonTable th,
-#pokemonTable td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: center;
-}
-
-#pokemonTable th {
-    background-color: #f4f4f4;
-}
-
-#pokemonDetails {
-    padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-bottom: 20px;
 }
 
 /* Footer styles */
@@ -276,32 +190,6 @@ footer {
 
 footer p {
     margin: 0;
-}
-
-#pokemonDetails img {
-    display: block;
-    margin: 0 auto 10px;
-}
-
-#pokemonDetails h3 {
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-#pokemonDetails p {
-    margin: 5px 0;
-    text-align: left;
-}
-
-#pokemonDetails ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-#pokemonDetails ul li {
-    margin: 5px 0;
-    text-align: left;
 }
 
 .pokemon-popup {
