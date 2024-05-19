@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <td>${pokemon.abilities.map(ability => ability.ability.name).join(', ')}</td>
             <td>${pokemon.height} dm</td>
             <td>${pokemon.weight} hg</td>
-            <td>${pokemon.stats.map(stat => `${stat.stat.name}: ${stat.base_stat}`).join(', ')}</td>
+            <td>${pokemon.stats.map(stat => `${stat.stat.name}: ${stat.base_stat}`).join('<br>')}</td>
             <td><button class="remove-btn">Remove</button></td>
         `;
         row.addEventListener('click', () => {

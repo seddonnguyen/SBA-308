@@ -1,9 +1,9 @@
+import { validateEmail } from './utils.js';
+
 document.addEventListener('DOMContentLoaded', () => {
     const signInForm = document.getElementById('signInForm');
     const emailInput = document.getElementById('email');
     const passwordInput = document.getElementById('password');
-
-    const validateEmail = (email) => /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(email.trim());
 
     signInForm.addEventListener('submit', (event) => {
         event.preventDefault();

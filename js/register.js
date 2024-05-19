@@ -1,11 +1,10 @@
+import { validateEmail, validatePassword } from './utils.js';
+
 document.addEventListener('DOMContentLoaded', () => {
     const registrationForm = document.getElementById('registrationForm');
     const emailInput = document.getElementById('email');
     const passwordInput = document.getElementById('password');
     const confirmPasswordInput = document.getElementById('confirmPassword');
-
-    const validateEmail = (email) => /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(email.trim());
-    const validatePassword = (password) => /\S{6,}/.test(password.trim());
 
     registrationForm.addEventListener('submit', (event) => {
         event.preventDefault();
