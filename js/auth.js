@@ -1,10 +1,30 @@
-document.getElementById('loginForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    const username = document.getElementById('loginUsername').value;
-    const password = document.getElementById('loginPassword').value;
-    if (username && password) { // Simple check for non-empty values
-        window.location.href = '../pages/pokemon.html'; // Redirect to Pokémon page on successful login
-    } else {
-        alert('Please enter both username and password');
-    }
+document.addEventListener('DOMContentLoaded', () => {
+    const signInForm = document.getElementById('signInForm');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+
+    const validateEmail = (email) => /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(email.trim());
+
+    signInForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        let valid = true;
+
+        emailInput.setCustomValidity('');
+        passwordInput.setCustomValidity('');
+
+        if (!validateEmail(emailInput.value)) {
+            emailInput.setCustomValidity('Please enter a valid email address.');
+            valid = false;
+        }
+
+        if (!valid) {
+            emailInput.reportValidity();
+            passwordInput.reportValidity();
+        } else {
+            window.location.href = 'pokemon.html';
+        }
+    });
+
+    emailInput.addEventListener('input', () => emailInput.setCustomValidity(''));
+    passwordInput.addEventListener('input', () => passwordInput.setCustomValidity(''));
 });

@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Pokémon Collection</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-    <link href="../css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
 <header>
-    <h1>My Pokémon Collection</h1>
+    <h1>My Pokémon Pokédex</h1>
 </header>
 <main>
     <section class="pokemon-container">
         <div class="pokemon-selector">
             <label for="pokemonSelect">Choose a Pokémon:</label>
-            <select id="pokemonSelect" onchange="displayPokemonDetails(this.value)">
+            <select id="pokemonSelect">
                 <option value="">Select a Pokémon</option>
             </select>
         </div>
-        <div class="pokemon-card hidden" id="pokemonDetails">
-            <!-- Pokémon details will be shown here in a card layout -->
+        <div id="pokemonDetails" class="hidden">
+            <!-- Pokémon details will be displayed here -->
         </div>
         <table id="pokemonTable">
             <thead>
@@ -30,6 +30,9 @@
                 <th>Name</th>
                 <th>Type</th>
                 <th>Abilities</th>
+                <th>Height</th>
+                <th>Weight</th>
+                <th>Stats</th>
                 <th>Actions</th>
             </tr>
             </thead>
@@ -40,8 +43,19 @@
     </section>
 </main>
 <footer>
-    <p>© 2024 Pokémon Fan Site</p>
+    <p>© 2024 Ultimate Pokémon Pokédex</p>
 </footer>
+
+<!-- Pokémon popup card -->
+<div id="pokemonPopup" class="pokemon-popup hidden">
+    <div class="pokemon-card">
+        <div class="pokemon-card-content">
+            <!-- Pokémon details will be shown here in a card layout -->
+        </div>
+    </div>
+    <button id="closePopup" class="close-popup">Close</button>
+</div>
+
 <script src="../js/pokemon.js"></script>
 </body>
 </html>

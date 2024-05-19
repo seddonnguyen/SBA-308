@@ -3,44 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokémon Fan Site - Register</title>
+    <title>Create Account - Ultimate Pokémon Pokédex</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
 <header>
-    <h1>Register for Pokémon Fan Site</h1>
+    <h1>Create Account</h1>
 </header>
 <main>
     <div class="form-container">
         <section class="form-section">
-            <p>Please fill in the form below to create an account. Note:</p>
-            <ul>
-                <li>Username must be at least 5 characters long and contain only alphanumeric characters.</li>
-                <li>Password must be at least 8 characters and include at least one uppercase letter, one lowercase letter, and one number.</li>
-            </ul>
+            <h2>Register</h2>
             <form id="registrationForm">
                 <div class="input-group">
-                    <label for="username"><i class="fas fa-user"></i> Username:</label>
-                    <input type="text" id="username" name="username" placeholder="Choose a username" required pattern="[A-Za-z0-9]{5,}">
+                    <label for="email"><i class="fa fa-envelope" aria-hidden="true"></i> Email</label>
+                    <input type="email" id="email" name="email" required>
                 </div>
                 <div class="input-group">
-                    <label for="password"><i class="fas fa-lock"></i> Password:</label>
-                    <input type="password" id="password" name="password" placeholder="Create a password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+                    <label for="password"><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" id="password" name="password" placeholder="At least 6 characters" required>
                 </div>
                 <div class="input-group">
-                    <label for="confirmPassword"><i class="fas fa-lock"></i> Confirm Password:</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+                    <label for="confirmPassword"><i class="fas fa-lock"></i> Confirm</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
                 </div>
                 <button type="submit">Register</button>
             </form>
+            <p class="login-link">Already registered? <a href="index.html">Login here</a></p>
         </section>
-        <p class="login-link">Already registered? <a href="index.html">Login here</a></p>
     </div>
 </main>
 <footer>
-    <p>© 2024 Pokémon Fan Site</p>
+    <p>© 2024 Ultimate Pokémon Pokédex</p>
 </footer>
 <script src="../js/register.js"></script>
 </body>

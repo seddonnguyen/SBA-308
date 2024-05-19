@@ -1,66 +1,107 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
     const select = document.getElementById('pokemonSelect');
     const detailsDiv = document.getElementById('pokemonDetails');
     const tableBody = document.getElementById('pokemonTable').getElementsByTagName('tbody')[0];
+    const pokemonPopup = document.getElementById('pokemonPopup');
+    const pokemonCardContent = pokemonPopup.querySelector('.pokemon-card-content');
+    const closePopup = document.getElementById('closePopup');
 
-    // Fetching initial list of Pokémon from the PokéAPI
-    fetch('https://pokeapi.co/api/v2/pokemon?limit=150')
-        .then(response => response.json())
-        .then(data => {
-            data.results.forEach(pokemon => {
-                let option = document.createElement('option');
-                option.value = pokemon.url;  // Store the URL for details retrieval
-                option.textContent = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
-                select.appendChild(option);
-            });
+    const fetchPokemonList = async () => {
+        const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=150');
+        const data = await response.json();
+
+        const sortedPokemon = data.results.sort((a, b) => a.name.localeCompare(b.name));
+
+        sortedPokemon.forEach(pokemon => {
+            const option = document.createElement('option');
+            option.value = pokemon.url;
+            option.textContent = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+            select.appendChild(option);
         });
+    };
 
-    // Function to display selected Pokémon details
-    window.displayPokemonDetails = function(url) {
+    const displayPokemonDetails = async (url, targetDiv = detailsDiv, showAddButton = true) => {
         if (url) {
-            fetch(url)
-                .then(response => response.json())
-                .then(pokemon => {
-                    // Create card content with Pokémon details
-                    const img = document.createElement('img');
-                    img.src = pokemon.sprites.front_default;
-                    img.alt = pokemon.name;
+            const response = await fetch(url);
+            const pokemon = await response.json();
 
-                    const name = document.createElement('h3');
-                    name.textContent = pokemon.name.toUpperCase();
+            targetDiv.innerHTML = '';
 
-                    const type = document.createElement('p');
-                    type.textContent = 'Type: ' + pokemon.types.map(t => t.type.name).join(', ');
+            const img = document.createElement('img');
+            img.src = pokemon.sprites.front_default;
+            img.alt = pokemon.name;
 
-                    const abilities = document.createElement('p');
-                    abilities.textContent = 'Abilities: ' + pokemon.abilities.map(a => a.ability.name).join(', ');
+            const name = document.createElement('h3');
+            name.textContent = pokemon.name.toUpperCase();
 
-                    const addButton = document.createElement('button');
-                    addButton.textContent = 'Add to Collection';
-                    addButton.onclick = () => {
-                        addPokemonToTable(pokemon);
-                        detailsDiv.classList.add('hidden'); // Hide details after adding
-                    };
+            // Capitalize the first letter of each word for all the pokemon attributes
+            pokemon.types.forEach(type => type.type.name = type.type.name.charAt(0).toUpperCase() + type.type.name.slice(1));
+            pokemon.abilities.forEach(ability => ability.ability.name = ability.ability.name.charAt(0).toUpperCase() + ability.ability.name.slice(1));
+            pokemon.stats.forEach(stat => stat.stat.name = stat.stat.name.charAt(0).toUpperCase() + stat.stat.name.slice(1));
 
-                    // Clear previous details and update with new
-                    detailsDiv.innerHTML = '';
-                    detailsDiv.append(img, name, type, abilities, addButton);
-                    detailsDiv.classList.remove('hidden');
+            const type = document.createElement('p');
+            type.textContent = 'Type: ' + pokemon.types.map(t => t.type.name).join(', ');
+
+            const abilities = document.createElement('p');
+            abilities.textContent = 'Abilities: ' + pokemon.abilities.map(a => a.ability.name).join(', ');
+
+            const height = document.createElement('p');
+            height.textContent = 'Height: ' + pokemon.height + ' dm';
+
+            const weight = document.createElement('p');
+            weight.textContent = 'Weight: ' + pokemon.weight + ' hg';
+
+            const stats = document.createElement('ul');
+            pokemon.stats.forEach(stat => {
+                const li = document.createElement('li');
+                li.textContent = `${stat.stat.name}: ${stat.base_stat}`;
+                stats.appendChild(li);
+            });
+
+            if (showAddButton) {
+                const addButton = document.createElement('button');
+                addButton.textContent = 'Add to Collection';
+                addButton.addEventListener('click', () => {
+                    addPokemonToTable(pokemon, url);
+                    detailsDiv.classList.add('hidden');
                 });
+                targetDiv.append(img, name, type, abilities, height, weight, stats, addButton);
+            } else {
+                targetDiv.append(img, name, type, abilities, height, weight, stats);
+            }
+            targetDiv.classList.remove('hidden');
         }
     };
 
-    // Function to add Pokémon to the table
-    function addPokemonToTable(pokemon) {
-        let row = tableBody.insertRow();
+    const addPokemonToTable = (pokemon, url) => {
+        const row = tableBody.insertRow();
+        row.setAttribute('data-url', url); // Store URL in data attribute
         row.innerHTML = `
             <td><img src="${pokemon.sprites.front_default}" alt="${pokemon.name}" style="width:50px;"></td>
             <td>${pokemon.name.toUpperCase()}</td>
             <td>${pokemon.types.map(type => type.type.name).join(', ')}</td>
             <td>${pokemon.abilities.map(ability => ability.ability.name).join(', ')}</td>
-            <td>
-                <button onclick="this.parentElement.parentElement.remove()">Remove</button>
-            </td>
+            <td>${pokemon.height} dm</td>
+            <td>${pokemon.weight} hg</td>
+            <td>${pokemon.stats.map(stat => `${stat.stat.name}: ${stat.base_stat}`).join(', ')}</td>
+            <td><button class="remove-btn">Remove</button></td>
         `;
-    }
+        row.addEventListener('click', () => {
+            const pokemonUrl = row.getAttribute('data-url');
+            displayPokemonDetails(pokemonUrl, pokemonCardContent, false); // Hide the add button in the popup
+            pokemonPopup.classList.remove('hidden');
+        });
+        row.querySelector('.remove-btn').addEventListener('click', (event) => {
+            event.stopPropagation();
+            row.remove();
+        });
+    };
+
+    closePopup.addEventListener('click', () => {
+        pokemonPopup.classList.add('hidden');
+    });
+
+    select.addEventListener('change', (event) => displayPokemonDetails(event.target.value));
+
+    fetchPokemonList();
 });
