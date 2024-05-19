@@ -32,7 +32,7 @@ h1 {
 }
 
 .form-section, .pokemon-container {
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 auto;
     background: #fff;
     padding: 20px;
@@ -226,7 +226,7 @@ table th {
 }
 
 .pokemon-container {
-    max-width: 800px;
+    max-width: 600px;
     margin: 0 auto;
 }
 
@@ -258,6 +258,21 @@ table th {
     border: 1px solid #ddd;
     border-radius: 5px;
     margin-bottom: 20px;
+}
+
+/* Footer styles */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #ffcb05;
+    text-align: center;
+    padding: 20px;
+    color: #2a75bb;
+}
+
+footer p {
+    margin: 0;
 }
 
 #pokemonDetails img {
@@ -318,5 +333,4 @@ table th {
 
 .hidden {
     display: none;
-}
 }
