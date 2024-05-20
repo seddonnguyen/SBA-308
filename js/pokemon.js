@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const tableBody = document.getElementById('pokemonTable').getElementsByTagName('tbody')[0];
     const pokemonPopup = document.getElementById('pokemonPopup');
     const pokemonCardContent = pokemonPopup.querySelector('.pokemon-card-content');
+    const removeBtn = pokemonPopup.querySelector('.remove-btn');
     const closePopup = document.getElementById('closePopup');
 
     const fetchPokemonList = async () => {
@@ -27,75 +28,91 @@ document.addEventListener('DOMContentLoaded', () => {
 
             targetDiv.innerHTML = '';
 
+            const pokemonName = capitalizedWords(pokemon.name);
+
             const img = document.createElement('img');
-            img.src = pokemon.sprites.front_default;
-            img.alt = pokemon.name;
+            img.src = pokemon.sprites.front_default;;
+            img.alt = pokemonName;
 
             const name = document.createElement('h3');
-            name.textContent = pokemon.name.toUpperCase();
+            name.textContent = `${pokemonName} #${pokemon.id}`;
 
-            // Capitalize the first letter of each word for all the pokemon attributes
-            pokemon.types.forEach(type => type.type.name = type.type.name.charAt(0).toUpperCase() + type.type.name.slice(1));
-            pokemon.abilities.forEach(ability => ability.ability.name = ability.ability.name.charAt(0).toUpperCase() + ability.ability.name.slice(1));
-            pokemon.stats.forEach(stat => stat.stat.name = stat.stat.name.charAt(0).toUpperCase() + stat.stat.name.slice(1));
+            const types = document.createElement('p');
+            types.textContent = 'Type: ' + pokemon.types.map(t => capitalizedWords(t.type.name)).join(', ');
 
-            const type = document.createElement('p');
-            type.textContent = 'Type: ' + pokemon.types.map(t => t.type.name).join(', ');
-
-            const abilities = document.createElement('p');
-            abilities.textContent = 'Abilities: ' + pokemon.abilities.map(a => a.ability.name).join(', ');
+            const abilities = document.createElement('p');pokemon.abilities.forEach(ability => ability.ability.name = ability.ability.name.charAt(0).toUpperCase() + ability.ability.name.slice(1));
+            abilities.textContent = 'Abilities: ' + pokemon.abilities.map(a => capitalizedWords(a.ability.name)).join(', ');
 
             const height = document.createElement('p');
-            height.textContent = 'Height: ' + pokemon.height + ' dm';
+            height.textContent = 'Height: ' + convertDecimetersToFeetWithInches(pokemon.height);
 
             const weight = document.createElement('p');
-            weight.textContent = 'Weight: ' + pokemon.weight + ' hg';
+            weight.textContent = 'Weight: ' + convertDecagramsToPounds(pokemon.weight);
 
-            const stats = document.createElement('ul');
-            pokemon.stats.forEach(stat => {
-                const li = document.createElement('li');
-                li.textContent = `${stat.stat.name}: ${stat.base_stat}`;
-                stats.appendChild(li);
+            targetDiv.append(img, name, types, abilities, height, weight);
+
+            pokemon.stats.forEach(s => {
+                const p = document.createElement('p');
+                p.textContent = `${capitalizedWords(s.stat.name)}: ${s.base_stat}`;
+                targetDiv.appendChild(p);
             });
 
             if (showAddButton) {
                 const addButton = document.createElement('button');
-                addButton.textContent = 'Add to Pokédex';
+                addButton.textContent = 'Add Pokémon';
                 addButton.addEventListener('click', () => {
                     addPokemonToTable(pokemon, url);
                     detailsDiv.classList.add('hidden');
                 });
-                targetDiv.append(img, name, type, abilities, height, weight, stats, addButton);
-            } else {
-                targetDiv.append(img, name, type, abilities, height, weight, stats);
+                targetDiv.append(addButton);
             }
             targetDiv.classList.remove('hidden');
         }
     };
 
+    const convertDecimetersToFeetWithInches = (decimeters) => {
+        const totalInches = decimeters * 3.937;
+        const feet = Math.floor(totalInches / 12);
+        const inches = Math.round(totalInches % 12);
+        return `${feet}'${inches}"`;
+    }
+
+    const capitalizedWords = (string) => {
+        const words = string.split('-');
+        const capitalizedWords = words.map(word => word.charAt(0).toUpperCase() + word.slice(1));
+        return capitalizedWords.join(' ');
+    }
+
+    const convertDecagramsToPounds = (decagrams) => {
+        const totalPounds = decagrams * 0.22046;
+        return `${totalPounds.toFixed(1)} lbs`;
+    }
+
     const addPokemonToTable = (pokemon, url) => {
+        const pokemonName = capitalizedWords(pokemon.name);
         const row = tableBody.insertRow();
         row.setAttribute('data-url', url); // Store URL in data attribute
         row.innerHTML = `
-            <td><img src="${pokemon.sprites.front_default}" alt="${pokemon.name}" style="width:50px;"></td>
-            <td>${pokemon.name.toUpperCase()}</td>
-            <td>${pokemon.types.map(type => type.type.name).join(', ')}</td>
-            <td>${pokemon.abilities.map(ability => ability.ability.name).join(', ')}</td>
-            <td>${pokemon.height} dm</td>
-            <td>${pokemon.weight} hg</td>
-            <td>${pokemon.stats.map(stat => `<div>${stat.stat.name}: ${stat.base_stat}</div>`).join("")}</td>
-            <td><button class="remove-btn">Remove</button></td>
+            <td><img src="${pokemon.sprites.front_default}" alt="${pokemonName}"></td>
+            <td>${pokemonName}</td>
         `;
         row.addEventListener('click', () => {
             const pokemonUrl = row.getAttribute('data-url');
-            displayPokemonDetails(pokemonUrl, pokemonCardContent, false); // Hide the add button in the popup
+            displayPokemonDetails(pokemonUrl, pokemonCardContent, false);
+            // Store row index in data attribute
+            pokemonCardContent.setAttribute('data-row', row.rowIndex);
+            // Hide the add button in the popup
             pokemonPopup.classList.remove('hidden');
         });
-        row.querySelector('.remove-btn').addEventListener('click', (event) => {
-            event.stopPropagation();
-            row.remove();
-        });
     };
+
+    removeBtn.addEventListener('click', (event) => {
+        event.stopPropagation();
+        const rowIndex = pokemonCardContent.getAttribute('data-row');
+        const row = tableBody.rows[rowIndex - 1]; // rowIndex is 1-based
+        row.remove();
+        pokemonPopup.classList.add('hidden');
+    });
 
     closePopup.addEventListener('click', () => {
         pokemonPopup.classList.add('hidden');

@@ -1,9 +1,9 @@
 
-# Ultimate Pokémon Pokédex
+# Ultimate Pokémon
 
 ## Description
 
-The Ultimate Pokémon Pokédex is an extensive web application that offers in-depth information on a wide range of Pokémon. Users can explore Pokémon types, abilities, height, weight, and stats. The website provides an engaging user experience, enabling individuals to sign in, register, and efficiently manage their Pokémon collection.
+The Ultimate Pokémon is an extensive web application that offers in-depth information on a wide range of Pokémon. Users can explore Pokémon types, abilities, height, weight, and stats. The website provides an engaging user experience, enabling individuals to sign in, register, and efficiently manage their Pokémon collection.
 
 ## Features
 
@@ -70,7 +70,7 @@ To run this project locally, follow these steps:
 ## File Structure
 
 ```
-ultimate-pokemon-pokedex/
+SBA-308/
 ├── css/
 │   └── styles.css
 ├── js/

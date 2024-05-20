@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Pokémon Collection</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Ultimate Pokémon</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
     <style>
         /* Pokemon Table */
         #pokemonTable {
@@ -15,24 +15,39 @@
             margin-bottom: 20px;
         }
 
-        #pokemonTable th,
+        #pokemonTable th {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+
+        }
+
+        #pokemonTable tr:hover {
+            background-color: deepskyblue !important;
+        }
+
+        #pokemonTable tr:nth-child(even) {
+            background-color: lemonchiffon;
+        }
+
         #pokemonTable td {
             border: 1px solid #ddd;
             padding: 8px;
             text-align: center;
         }
 
-        #pokemonTable th {
-            background-color: #f4f4f4;
-        }
-
         #pokemonTable td img {
-            width: 50px;
+            width: fit-content;
             height: auto;
+            margin: 0 auto;
         }
 
         /* Pokemon Details */
         #pokemonDetails {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             padding: 20px;
             background-color: #f9f9f9;
             border: 1px solid #ddd;
@@ -42,7 +57,7 @@
 
         #pokemonDetails img {
             display: block;
-            margin: 0 auto 10px;
+            margin: 0 auto;
         }
 
         #pokemonDetails h3 {
@@ -50,19 +65,26 @@
             margin-bottom: 10px;
         }
 
-        #pokemonDetails p,
-        #pokemonDetails ul,
-        #pokemonDetails li {
+        #pokemonDetails p {
+            width: 60%;
             margin: 5px 0;
+            justify-content: center;
             text-align: left;
-            list-style: none;
             padding: 0;
+        }
+
+        #pokemonDetails button {
+            padding: 10px 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
 <header>
-    <h1>My Pokémon Pokédex</h1>
+    <h1>Pokémon</h1>
 </header>
 <main>
     <section class="pokemon-container" style="text-align:center">
@@ -72,20 +94,13 @@
                 <option value="">Select a Pokémon</option>
             </select>
         </div>
-        <div id="pokemonDetails" class="hidden">
+        <div class="hidden" id="pokemonDetails">
             <!-- Pokémon details will be displayed here -->
         </div>
         <table id="pokemonTable">
             <thead>
             <tr>
-                <th>Image</th>
-                <th>Name</th>
-                <th>Type</th>
-                <th>Abilities</th>
-                <th>Height</th>
-                <th>Weight</th>
-                <th>Stats</th>
-                <th>Actions</th>
+                <th colspan="2">My Pokémon</th>
             </tr>
             </thead>
             <tbody>
@@ -95,17 +110,20 @@
     </section>
 </main>
 <footer>
-    <p>© 2024 Ultimate Pokémon Pokédex</p>
+    <p>© 2024 Ultimate Pokémon</p>
 </footer>
 
 <!-- Pokémon popup card -->
-<div id="pokemonPopup" class="pokemon-popup hidden">
+<div class="pokemon-popup hidden" id="pokemonPopup">
     <div class="pokemon-card">
         <div class="pokemon-card-content">
             <!-- Pokémon details will be shown here in a card layout -->
         </div>
     </div>
-    <button id="closePopup" class="close-popup">Close</button>
+    <div class="pokemon-card-actions">
+        <button class="remove-btn">Remove</button>
+        <button class="close-popup" id="closePopup">Close</button>
+    </div>
 </div>
 
 <script src="../js/pokemon.js" type="module"></script>
