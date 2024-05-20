@@ -4,8 +4,8 @@
     --background-color: #f0f4f8;
     --text-color: #333;
     --button-hover-color: #1a54a5;
-    --error-color: #f44336;
-    --error-hover-color: #d32f2f;
+    --remove-color: #f44336;
+    --remove-hover-color: #d32f2f;
     --font-family: 'Roboto', sans-serif;
     --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     --border-radius: 10px;
@@ -141,11 +141,10 @@ button:hover {
     margin-top: 10px;
 }
 
-.close-popup {
+.close-popup .remove-btn {
     display: block;
     margin: 0 auto;
     padding: 10px 20px;
-    background-color: var(--error-color);
     color: white;
     border: none;
     border-radius: 5px;
@@ -153,8 +152,12 @@ button:hover {
     transition: background-color 0.3s;
 }
 
-.close-popup:hover {
-    background-color: var(--error-hover-color);
+.remove-btn {
+    background-color: var(--remove-color);
+}
+
+.remove-btn:hover {
+    background-color: var(--remove-hover-color);
 }
 
 /* Utility Classes */
