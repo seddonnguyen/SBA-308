@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (showAddButton) {
                 const addButton = document.createElement('button');
-                addButton.textContent = 'Add to Collection';
+                addButton.textContent = 'Add to Pokédex';
                 addButton.addEventListener('click', () => {
                     addPokemonToTable(pokemon, url);
                     detailsDiv.classList.add('hidden');
