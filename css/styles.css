@@ -137,11 +137,9 @@ button:hover {
     padding: 20px;
 }
 
-.pokemon-card-actions {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+.pokemon-card-actions button{
+    margin-top: 10px;
+
 }
 
 .close-popup {
