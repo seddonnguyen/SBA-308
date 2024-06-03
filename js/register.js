@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
             passwordInput.reportValidity();
             confirmPasswordInput.reportValidity();
         } else {
-            window.location.href = 'index.html';
+            window.location.href = '../index.html';
         }
     });
 

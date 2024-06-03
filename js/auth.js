@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             emailInput.reportValidity();
             passwordInput.reportValidity();
         } else {
-            window.location.href = 'pokemon.html';
+            window.location.href = 'pages/pokemon.html';
         }
     });
 
