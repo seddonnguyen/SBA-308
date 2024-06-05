@@ -1,4 +1,5 @@
 import { validateEmail } from './utils.js';
+import '../css/styles.css';
 
 document.addEventListener('DOMContentLoaded', () => {
     const signInForm = document.getElementById('signInForm');
