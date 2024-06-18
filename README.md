@@ -61,10 +61,10 @@ To run this project locally, follow these steps:
 5. **Sign In**:
    Simply open `index.html` in your preferred web browser.
 
-## Usage
-- **Sign In**: Open the `index.html` or hop online at [Ultimate Pokémon](https://seddonnguyen.github.io/pokemon/) to navigate to the sign-in page and enter your credentials.
-- **Register**: If you do not have an account, you can register on the registration page.
-- **Explore Pokémon**: After signing in, explore and manage your Pokémon collection.
+## Getting Started
+- **Sign In**: Ready to catch 'em all? Open the `index.html` or visit [Ultimate Pokémon](https://seddonnguyen.github.io/pokemon/) online to head to the sign-in page and unleash your Pokémon journey by entering your login details.
+- **Register**: New to the world of Ultimate Pokémon? No worries! You can register and join the adventure on the registration page.
+- **Explore Pokémon**: Once you’re in, embark on an epic adventure to explore and manage your Pokémon collection. It’s time to show off your skills and become the ultimate Pokémon master!"
 
 ## File Structure
 ```
