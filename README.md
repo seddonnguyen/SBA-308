@@ -68,12 +68,12 @@ To run this project locally, follow these steps:
    ```bash
    npm run build
    ```
-5. **Open the game**:
+5. **Sign In**:
    Simply open `index.html` in your preferred web browser.
 
 ## Usage
 
-- **Sign In**: Navigate to the sign-in page (`index.html`) and enter your credentials.
+- **Sign In**: Open the `index.html` or hop online at [Ultimate Pokémon](https://seddonnguyen.github.io/pokemon/) to navigate to the sign-in page and enter your credentials.
 - **Register**: If you do not have an account, you can register on the registration page.
 - **Explore Pokémon**: After signing in, explore and manage your Pokémon collection.
 
