@@ -51,15 +51,25 @@ The Ultimate Pokémon is an extensive web application that offers in-depth infor
 
 To run this project locally, follow these steps:
 
-1. Clone the repository:
-   ```sh
+1. **Clone the repository**:
+   ```bash
    git clone git@github.com:seddonnguyen/pokemon.git
    ```
-2. Navigate to the project directory:
-   ```sh
+   Or [download the ZIP file](https://github.com/seddonnguyen/pokemon/archive/refs/heads/main.zip)).
+2. **Navigate to the project directory**:
+   ```bash
    cd pokemon
    ```
-3. Open `index.html` in your preferred web browser.
+3. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+4. **Build the project**:
+   ```bash
+   npm run build
+   ```
+5. **Open the game**:
+   Simply open `index.html` in your preferred web browser.
 
 ## Usage
 
@@ -73,6 +83,12 @@ To run this project locally, follow these steps:
 pokemon/
 ├── css/
 │   └── styles.css
+├── dist/
+│   ├── bundle.js
+│   ├── index.html
+│   └── styles.css
+├── doc/
+│   └── SBA 307 and 308 - HTML and JavaScript.docx
 ├── js/
 │   ├── auth.js
 │   ├── register.js
@@ -81,6 +97,9 @@ pokemon/
 ├── pages/
 │   ├── pokemon.html
 │   └── register.html
+├── .gitignore
+├── README.md
 ├── index.html
-└── README.md
+├── package.json
+└── webpack.config.js
 ```
