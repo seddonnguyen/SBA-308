@@ -1,12 +1,8 @@
 
 # Ultimate Pokémon
-
-## Description
-
 The Ultimate Pokémon is an extensive web application that offers in-depth information on a wide range of Pokémon. Users can explore Pokémon types, abilities, height, weight, and stats. The website provides an engaging user experience, enabling individuals to sign in, register, and efficiently manage their Pokémon collection.
 
 ## Features
-
 - **User Authentication**: Users can sign in and register securely.
 - **Pokémon Collection Management**: Users can add Pokémon to their collection and view detailed information.
 - **Interactive Interface**: Easy-to-use forms and selectors to enhance user experience.
@@ -15,7 +11,6 @@ The Ultimate Pokémon is an extensive web application that offers in-depth infor
 ## Technical Specifications
 
 ### Frontend
-
 - **HTML**: The structure of the web pages is created using HTML5.
     - **Files**:
         - `index.html`: The main page where users can sign in.
@@ -36,21 +31,16 @@ The Ultimate Pokémon is an extensive web application that offers in-depth infor
         - Fetch API: Used for making HTTP requests to the PokéAPI.
 
 ### Backend
-
 - **Server**: There is no backend server in this project. All data fetching and interactions are performed using client-side JavaScript.
 
 ### External APIs
-
 - **PokéAPI**: Used to fetch detailed information about Pokémon. The API provides data on Pokémon species, abilities, types, and more.
 
 ### Deployment
-
 - **Static Hosting**: The project can be deployed on any static hosting service such as GitHub Pages, Netlify, or Vercel.
 
 ## Installation
-
 To run this project locally, follow these steps:
-
 1. **Clone the repository**:
    ```bash
    git clone git@github.com:seddonnguyen/pokemon.git
@@ -72,13 +62,11 @@ To run this project locally, follow these steps:
    Simply open `index.html` in your preferred web browser.
 
 ## Usage
-
 - **Sign In**: Open the `index.html` or hop online at [Ultimate Pokémon](https://seddonnguyen.github.io/pokemon/) to navigate to the sign-in page and enter your credentials.
 - **Register**: If you do not have an account, you can register on the registration page.
 - **Explore Pokémon**: After signing in, explore and manage your Pokémon collection.
 
 ## File Structure
-
 ```
 pokemon/
 ├── css/
