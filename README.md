@@ -53,24 +53,24 @@ To run this project locally, follow these steps:
 
 1. Clone the repository:
    ```sh
-   git clone git@github.com:seddonnguyen/SBA-308.git
+   git clone git@github.com:seddonnguyen/pokemon.git
    ```
 2. Navigate to the project directory:
    ```sh
-   cd SBA-308
+   cd pokemon
    ```
-3. Open `pages/index.html` in your preferred web browser.
+3. Open `index.html` in your preferred web browser.
 
 ## Usage
 
-- **Sign In**: Navigate to the sign-in page (`pages/index.html`) and enter your credentials.
-- **Register**: If you do not have an account, you can register on the registration page (`pages/register.html`).
-- **Explore Pokémon**: After signing in, explore and manage your Pokémon collection on the main page (`pages/pokemon.html`).
+- **Sign In**: Navigate to the sign-in page (`index.html`) and enter your credentials.
+- **Register**: If you do not have an account, you can register on the registration page.
+- **Explore Pokémon**: After signing in, explore and manage your Pokémon collection.
 
 ## File Structure
 
 ```
-SBA-308/
+pokemon/
 ├── css/
 │   └── styles.css
 ├── js/
@@ -79,8 +79,8 @@ SBA-308/
 │   ├── pokemon.js
 │   └── utils.js
 ├── pages/
-│   ├── index.html
 │   ├── pokemon.html
 │   └── register.html
+├── index.html
 └── README.md
 ```
