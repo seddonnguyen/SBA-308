@@ -3,10 +3,10 @@
 Are you ready to embark on your Pokémon journey? The Ultimate Pokémon is an immersive web application that unlocks a treasure trove of information about a diverse range of Pokémon. Dive into the fascinating world of Pokémon types, abilities, height, weight, and stats. This interactive platform offers a captivating user experience, empowering you to sign in, register, and effortlessly manage your prized Pokémon collection.
 
 ## Features
-- **User Authentication**: Users can sign in and register securely.
-- **Pokémon Collection Management**: Users can add Pokémon to their collection and view detailed information.
-- **Interactive Interface**: Easy-to-use forms and selectors to enhance user experience.
-- **Responsive Design**: The website is fully responsive and works on various devices.
+- **Secure User Authentication**: Easily sign in and register without worries.
+- **Pokémon Collection Management**: Add Pokémon to your collection and explore detailed info.
+- **Interactive Interface**: Enjoy using our user-friendly forms and selectors for a seamless experience.
+- **Responsive Design**: Experience the magic on any device with our fully responsive website.
 
 ## Technical Specifications
 
